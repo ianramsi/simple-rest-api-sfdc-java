@@ -5,7 +5,7 @@ public class Credential {
     private final String password = "";
     private final String clientSecret = "";
     private final String clientKey  = "";
-    private final String urlLogin = ";
+    private final String urlLogin = "";
 
     public String getUrlLogin(){
         return urlLogin;

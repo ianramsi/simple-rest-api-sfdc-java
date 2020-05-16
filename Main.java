@@ -100,12 +100,12 @@ public class Main {
         System.out.println("Account query...");
         System.out.println("Account query.....");
 
-        //try quert from salesforce
+        //try query from salesforce
         try{
             //setup Http objects to create request
             HttpClient httpClient = HttpClientBuilder.create().build();
 
-            String uri = baseUri + "/query?q=SELECT+Id,Name,Industry+FROM+Account+Limit+2";
+            String uri = baseUri + "/query?q=SELECT+Id,Tenant_Id__c,Name+FROM+Account+Limit+2";
             System.out.println("Query Url --> " +uri);
             HttpGet httpGet = new HttpGet(uri);
             System.out.println("Oauth Header --> "+oauthHeader);
@@ -126,8 +126,8 @@ public class Main {
                     for (int i = 0; i <j.length(); i++){
                         accountId = json.getJSONArray("records").getJSONObject(i).getString("Id");
                         accountName = json.getJSONArray("records").getJSONObject(i).getString("Name");
-                        accountTenantId = json.getJSONArray("records").getJSONObject(i).getString("Tenant_Id__c");
-                        System.out.println("Account Id is "+ accountId +" Name " + accountName + " Address " + accountTenantId);
+                        accountTenantId = json.getJSONArray("records").getJSONObject(i).optString ("Tenant_Id__c",null); //the Tenant_Id__c is sometimes return null, therefore must put default value
+                        System.out.println("Account Id: "+ accountId +" Name: " + accountName +  " Tenant_Id: " + accountTenantId);
                     }
 
                 }catch (JSONException je){
@@ -162,9 +162,6 @@ public class Main {
 
         return result;
     }
-
-
-
 
 
 }
