@@ -1,29 +1,29 @@
 package sfdc_rest;
 
 public class Credential {
-    private final String userName = "";
-    private final String password = "";
-    private final String clientSecret = "";
-    private final String clientKey  = "";
-    private final String urlLogin = "";
+    private static final String userName = "";
+    private static final String password = "";
+    private static final String clientSecret = "";
+    private static final String clientKey  = "";
+    private static final String urlLogin = "";
 
-    public String getUrlLogin(){
+    public static String getUrlLogin(){
         return urlLogin;
     }
 
-    public String getUserName(){
+    public static String getUserName(){
         return userName;
     }
 
-    public String getPassword(){
+    public static String getPassword(){
         return password;
     }
 
-    public String getClientSecret(){
+    public static String getClientSecret(){
         return clientSecret;
     }
 
-    public String getClientKey(){
+    public static String getClientKey(){
         return clientKey;
     }
 

@@ -36,12 +36,11 @@ public class Main2 {
 
     public static void main (String [] args){
 
-        Credential credential = new Credential();
-        String urlLogin = credential.getUrlLogin();
-        String usrName = credential.getUserName();
-        String pwd = credential.getPassword();
-        String clSec = credential.getClientSecret();
-        String clKey = credential.getClientKey();
+        String urlLogin = Credential.getUrlLogin();
+        String usrName = Credential.getUserName();
+        String pwd = Credential.getPassword();
+        String clSec = Credential.getClientSecret();
+        String clKey = Credential.getClientKey();
 
         HttpClient httpClient = HttpClientBuilder.create().build();
         String loginUrl = urlLogin + grantService + "&client_id=" + clSec + "&client_secret=" + clKey + "&username=" + usrName + "&password=" + pwd;
